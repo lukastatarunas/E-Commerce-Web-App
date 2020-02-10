@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import './App.css';
@@ -22,7 +22,6 @@ class App extends React.Component {
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      // createUserProfileDocument(user);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
@@ -33,8 +32,6 @@ class App extends React.Component {
               ...snapshot.data()
             }
           });
-
-          console.log(this.state);
         });
       }
       else {
