@@ -67,7 +67,7 @@ class SignIn extends React.Component {
                 </form>
             </div>
         );
-    }
-}
+    };
+};
 
 export default SignIn;
