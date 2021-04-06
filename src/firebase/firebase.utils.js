@@ -3,14 +3,14 @@ import 'firebase/firestore';
 import 'firebase/auth';
 
 const config = {
-    apiKey: "AIzaSyDvNZVSlRzgLliqVnlMKHm8K1EYLKxIbO8",
-    authDomain: "crown-db-127d9.firebaseapp.com",
-    databaseURL: "https://crown-db-127d9.firebaseio.com",
-    projectId: "crown-db-127d9",
-    storageBucket: "crown-db-127d9.appspot.com",
-    messagingSenderId: "341983740693",
-    appId: "1:341983740693:web:2db80d8545f45729119f1c",
-    measurementId: "G-H8SXPWV0H7"
+    apiKey: 'AIzaSyDvNZVSlRzgLliqVnlMKHm8K1EYLKxIbO8',
+    authDomain: 'crown-db-127d9.firebaseapp.com',
+    databaseURL: 'https://crown-db-127d9.firebaseio.com',
+    projectId: 'crown-db-127d9',
+    storageBucket: 'crown-db-127d9.appspot.com',
+    messagingSenderId: '341983740693',
+    appId: '1:341983740693:web:2db80d8545f45729119f1c',
+    measurementId: 'G-H8SXPWV0H7',
 };
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -29,16 +29,19 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 displayName,
                 email,
                 createdAt,
-                ...additionalData
+                ...additionalData,
             });
-            
         } catch (error) {
             console.log('Error creating user!', error.message);
         }
     }
 
     return userRef;
-}
+};
+
+export const addCollectionAndDocuments = (collectionKey, objectsToAdd) => {
+    const collectionRef = firestore.collection(collectionKey);
+};
 
 firebase.initializeApp(config);
 
